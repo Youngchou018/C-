@@ -1,0 +1,29 @@
+#include<iostream>
+int main()
+{
+	using namespace std;
+	const int max = 10;
+	double donation[max];
+	cout << "enter numbers; ";
+	int i = 0;
+	cout << "donation #1: ";
+	while (i<max&&cin >> donation[i])
+	{
+		if (++i < max)
+			cout << "donation #"<<i+1<<":";
+	}
+	double sum = 0.0;
+	int count = 0,j;
+	for ( j = 0; j < i; j++)
+		sum += donation[j];
+	double ave = sum / i;
+	cout << "平均值" << ave << endl;
+	for( j = 0; j < max; j++)
+		if (donation[j]>ave)
+		{
+			cout << donation[j]<<" ";
+			count++;
+		}
+	cout << "大于平均值个数" << count;
+	return 0;
+}
