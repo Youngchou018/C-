@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+void showmenu();
+int main()
+{
+	char ch,a;
+	showmenu();
+	while (1)
+	{
+		cin >> ch;
+		switch (ch)
+		{
+		case 'c': cout << "carnivore" << endl;
+			break;
+		case 'p': cout << "pianist" << endl;
+			break;
+		case 't': cout << "tree" << endl;
+			break;
+		case 'g': cout << "game" << endl;
+			break;
+		default:
+			cout << "please enter a c,p,t or g:";
+		}
+		if (ch == '!')
+			break;
+	}
+	return 0;
+}
+
+void showmenu() {
+	cout << "enter one of the choices: \n"
+		"c p t g\n";
+}
+
+
