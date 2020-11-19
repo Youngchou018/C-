@@ -1,0 +1,53 @@
+#include<iostream>
+#include<fstream>
+#include<cstdlib>
+#include<string>
+using namespace std;
+
+struct donat
+{
+	string name;
+	double money;
+};
+
+int main()
+{
+	fstream infile;
+	char filename[20];
+	cin.getline(filename,20);
+	infile.open(filename);
+	if (!infile.is_open())
+	{
+		cout << "couldn't open the file" << filename << endl;
+		cout << "terminated" << endl;
+		exit(EXIT_FAILURE);
+	}
+	int count;
+	infile >> count;
+	infile.get();//读取换行符
+	donat *pa = new donat[count];
+	for (int i = 0; i < count; i++)
+	{
+		getline(infile, pa[i].name);
+		infile >> pa[i].money;
+		infile.get();
+	}
+
+	int m = 0;
+	for (int i = 0; i < count; i++)
+	{
+		if(pa[i].money>10000)
+		{
+			cout << pa[i].name;
+			m++;
+		}
+	}
+	if (m == 0)
+		cout << "none";
+
+	delete[]pa;
+	infile.close();
+		
+	return 0;
+}
+
